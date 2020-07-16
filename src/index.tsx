@@ -1,10 +1,21 @@
-import * as React from 'react'
-import styles from './styles.module.css'
+import StateProvider from './Components/Provider';
+import StateContext from './Components/Context';
+import combineReducers from './utils/combineReducers';
+import useSelector from './hooks/useSelector';
+import useDispatch from './hooks/useDispatch';
 
-interface Props {
-  text: string
+export interface Action<T = any> {
+  type: T;
 }
 
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
+export interface AnyAction extends Action {
+  [payload: string]: any;
 }
+
+export {
+  StateProvider,
+  StateContext,
+  combineReducers,
+  useSelector,
+  useDispatch
+};
